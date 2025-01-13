@@ -123,11 +123,11 @@ The project will use **PHP**, **JavaScript**, and **pure CSS** exclusively.
    sudo mysql -u root
    ```
 2. Create a database for test, I'll be creating the project db since now
-   ```mysql
+   ```sql
    create database autos;
    ```
 3. As it's not recommended to use root user, create a user to manage the database
-   ```mysql
+   ```sql
    -- 1. Create a new user
    CREATE USER 'crud_autos'@'localhost' IDENTIFIED BY 'passw0rd#';
 
@@ -140,7 +140,7 @@ The project will use **PHP**, **JavaScript**, and **pure CSS** exclusively.
    ```
 4. Test the new user
    1. First get out of mysql root session
-   ```mysql
+   ```sql
       exit
    ```
    2. Login as the new user
@@ -149,11 +149,11 @@ The project will use **PHP**, **JavaScript**, and **pure CSS** exclusively.
    ```
    You will be ask to introduce the password
    3. Check if the user has the privileges to manipulate the database
-   ```mysql
+   ```sql
    show databases;
    ```
    You should see `autos`
-   ```mysql
+   ```sql
    use autos;
    CREATE TABLE test (
     PersonID int,
@@ -170,7 +170,7 @@ The project will use **PHP**, **JavaScript**, and **pure CSS** exclusively.
 
    1. Create this on mysql with your personal user (NOT ROOT) on autos db
 
-   ```mysql
+   ```sql
       CREATE TABLE `tbl_personal` (
       `id` int(11) NOT NULL,
       `nombres` varchar(50) NOT NULL,
