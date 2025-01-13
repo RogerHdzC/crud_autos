@@ -55,7 +55,7 @@ El contenido actual de tu documento es claro y describe adecuadamente el diseño
 
 ### 3. **Consultas de Ejemplo**
    ### Código para crear las tablas
-    ```sql
+   ```sql
     -- Crear tabla de marcas
     CREATE TABLE `marcas` (
         `marca_id` INT AUTO_INCREMENT PRIMARY KEY, -- Clave primaria con auto-incremento
@@ -87,6 +87,7 @@ El contenido actual de tu documento es claro y describe adecuadamente el diseño
 
    ### Insertar una Marca
    ```sql
+   
    INSERT INTO Marca (nombre) VALUES ('Volkswagen');
    ```
 
