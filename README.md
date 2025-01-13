@@ -124,7 +124,7 @@ El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
 
    1. Crea esto en mysql con tu usario personal (NO ROOT) en la base de datos de autos
 
-   ```mysql
+   ```sql
       CREATE TABLE `tbl_personal` (
       `id` int(11) NOT NULL,
       `nombres` varchar(50) NOT NULL,
@@ -300,3 +300,6 @@ if($query -> rowCount() > 0) {
 - Cada registro muestra los valores de las columnas: `nombres`, `apellidos`, `profesion`, `estado`, y `fregis`.
 
 ---
+## Diseño de la base de datos
+
+El diseño de la base de datos está documentado en el siguiente archivo: [Diseño de Base de Datos](bd/bd.md)
