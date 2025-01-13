@@ -83,7 +83,7 @@ El contenido actual de tu documento es claro y describe adecuadamente el diseño
     -- Agregar índices para mejorar el rendimiento en las claves foráneas
     CREATE INDEX `idx_modelos_marca_id` ON `modelos` (`marca_id`);
     CREATE INDEX `idx_submodelos_modelo_id` ON `submodelos` (`modelo_id`);
-    ```
+   ```
 
    ### Insertar una Marca
    ```sql
