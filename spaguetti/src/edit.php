@@ -23,6 +23,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $marca_id = $_POST['marca_id'];
         $pdo->prepare("UPDATE modelos SET modelo_name = ?, marca_id = ? WHERE modelo_id = ?")->execute([$modelo_name, $marca_id, $id]);
         header("Location: index.php");
+    } elseif ($type === 'submodelo') {
+        $submodelo_name = $_POST['submodelo_name'];
+        $modelo_id = $_POST['modelo_id'];
+        $submodelo_year = $_POST['submodelo_year'];
+        $submodelo_ac = $_POST['submodelo_ac'];
+        $pdo->prepare("UPDATE submodelos SET submodelo_name = ?, modelo_id = ?, submodelo_year = ?, submodelo_ac = ? WHERE submodelo_id = ?")
+            ->execute([$submodelo_name, $modelo_id, $submodelo_year, $submodelo_ac, $id]);
+        header("Location: index.php");
     }
 }
 
@@ -54,6 +62,26 @@ $item = $pdo->query("SELECT * FROM {$type}s WHERE {$type}_id = {$id}")->fetch(PD
                 }
                 ?>
             </select>
+        <?php elseif ($type === 'submodelo'): ?>
+            <label>Nombre del Submodelo:</label>
+            <input type="text" name="submodelo_name" value="<?php echo $item['submodelo_name']; ?>" required>
+            <label>Modelo:</label>
+            <select name="modelo_id">
+                <?php
+                $modelos = $pdo->query("SELECT * FROM modelos")->fetchAll(PDO::FETCH_ASSOC);
+                foreach ($modelos as $modelo) {
+                    $selected = $modelo['modelo_id'] == $item['modelo_id'] ? 'selected' : '';
+                    echo "<option value='{$modelo['modelo_id']}' {$selected}>{$modelo['modelo_name']}</option>";
+                }
+                ?>
+            </select>
+            <label>Año:</label>
+            <input type="number" name="submodelo_year" value="<?php echo $item['submodelo_year']; ?>" required>
+            <label>Aire Acondicionado:</label>
+            <label class="switch">
+                <input type="checkbox" name="submodelo_ac" value="1" <?php echo $item['submodelo_ac'] ? 'checked' : ''; ?>>
+                <span class="slider round"></span>
+            </label>
         <?php endif; ?>
         <button type="submit">Guardar Cambios</button>
     </form>
