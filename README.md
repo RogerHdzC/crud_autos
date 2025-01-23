@@ -29,7 +29,7 @@ El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
 
 ## Estructura del proyecto
 
-### Etapa 1: Código espagueti
+### Etapa 1: [Código espagueti](spaguetti/readme.md)
 - Una sola capa de código donde las funcionalidades estarán implementadas directamente en los archivos PHP.
 - Separación mínima de lógica, estructura y estilo.
 
