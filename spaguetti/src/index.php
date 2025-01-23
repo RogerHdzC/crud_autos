@@ -83,6 +83,45 @@
                 </tbody>
             </table>
         </div>
+
+        <!-- Tabla de Submodelos -->
+        <div>
+            <h2>Submodelos</h2>
+            <button onclick="window.location.href='add.php?type=submodelo'">Agregar Submodelo</button>
+            <table class="table-info-auto">
+                <thead>
+                    <tr>
+                        <th>Submodelo</th>
+                        <th>Modelo</th>
+                        <th>Año</th>
+                        <th>AC</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    $submodelos = $pdo->query("SELECT submodelos.submodelo_id, submodelos.submodelo_name, submodelos.submodelo_year, submodelos.submodelo_ac, 
+                                                      modelos.modelo_name 
+                                               FROM submodelos 
+                                               JOIN modelos ON submodelos.modelo_id = modelos.modelo_id")->fetchAll(PDO::FETCH_ASSOC);
+
+                    foreach ($submodelos as $submodelo) {
+                        $ac = $submodelo['submodelo_ac'] ? 'Sí' : 'No';
+                        echo "<tr>
+                                <td>{$submodelo['submodelo_name']}</td>
+                                <td>{$submodelo['modelo_name']}</td>
+                                <td>{$submodelo['submodelo_year']}</td>
+                                <td>{$ac}</td>
+                                <td>
+                                    <button class='edit' onclick=\"window.location.href='edit.php?type=submodelo&id={$submodelo['submodelo_id']}'\">Editar</button>
+                                    <button class='delete' onclick=\"window.location.href='delete.php?type=submodelo&id={$submodelo['submodelo_id']}'\">Eliminar</button>
+                                </td>
+                              </tr>";
+                    }
+                    ?>
+                </tbody>
+            </table>
+        </div>
     </div>
 </body>
 </html>
