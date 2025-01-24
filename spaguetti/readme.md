@@ -4,5 +4,5 @@
 
 ## Pasos para iniciar el proyecto
 1. En la terminal ejecuta composer install
-2. Dentro de la carpeta src agrega un archivo '.env' con las credenciales correctas que vienen en el .env.example
+2. Dentro de la carpeta src/includes agrega un archivo '.env' con las credenciales correctas que vienen en el .env.example
 3. En la terminal ejecuta un servidor virtual de php, `php -S localhost:3000`

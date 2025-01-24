@@ -1,5 +1,6 @@
 <?php
-include_once 'includes/db.php';
+$action = 'Agregar';
+include_once 'includes/head.php';
 
 $type = $_GET['type'] ?? '';
 
@@ -24,14 +25,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
-
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="css/main.css">
-    <title>Agregar <?php echo ucfirst($type); ?></title>
-</head>
-<body>
     <h1>Agregar <?php echo ucfirst($type); ?></h1>
     <form method="POST">
         <?php if ($type === 'marca'): ?>
