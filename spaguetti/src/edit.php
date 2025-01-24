@@ -1,5 +1,6 @@
 <?php
-include_once 'includes/db.php';
+$action = 'Editar';
+include_once 'includes/head.php';
 
 $type = $_GET['type'] ?? '';
 $id = $_GET['id'] ?? '';
@@ -28,13 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 $item = $pdo->query("SELECT * FROM {$type}s WHERE {$type}_id = {$id}")->fetch(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<html>
-<head>
-<link rel="stylesheet" href="css/main.css">
-    <title>Editar <?php echo ucfirst($type); ?></title>
-</head>
-<body>
+
     <h1>Editar <?php echo ucfirst($type); ?></h1>
     <form method="POST">
         <?php if ($type === 'marca'): ?>

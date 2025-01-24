@@ -1,15 +1,6 @@
 <?php
-include_once 'includes/db.php';
+include_once 'includes/head.php';
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CRUD Autos</title>
-    <link rel="stylesheet" href="css/main.css">
-</head>
-<body>
     <div class="container">
         <h1>CRUD de Autos</h1>
 
