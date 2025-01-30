@@ -1,15 +1,9 @@
 <?php
-require_once 'Database.php';
+require_once 'EntidadBase.php';
 
-class Modelo {
-    private $pdo;
-
+class Modelo extends EntidadBase {
     public function __construct() {
-        $this->pdo = (new Database())->connect();
-    }
-
-    public function getById($id) {
-        return $this->executeFetch("SELECT * FROM modelos WHERE modelo_id = ?", [$id]);
+        parent::__construct("modelos", "modelo_id");
     }
 
     public function getAllWithMarca() {
@@ -25,10 +19,6 @@ class Modelo {
             'marca_id' => $marcaId,
             'name' => $name
         ]);
-    }    
-
-    public function delete($id) {
-        $this->execute("DELETE FROM modelos WHERE modelo_id = :id", ['id' => $id]);
     }
 
     public function edit($id, $marcaId, $name) {
@@ -37,34 +27,5 @@ class Modelo {
             'id' => $id,
             'name' => $name
         ]);
-    }    
-
-    private function execute($query, $params = []) {
-        try {
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute($params);
-        } catch (PDOException $e) {
-            throw new Exception("Error en la consulta: " . $e->getMessage());
-        }
-    }
-
-    private function executeFetch($query, $params = []) {
-        try {
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute($params);
-            return $stmt->fetch(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Error en la consulta: " . $e->getMessage());
-        }
-    }
-
-    private function executeFetchAll($query, $params = []) {
-        try {
-            $stmt = $this->pdo->prepare($query);
-            $stmt->execute($params);
-            return $stmt->fetchAll(PDO::FETCH_ASSOC);
-        } catch (PDOException $e) {
-            throw new Exception("Error en la consulta: " . $e->getMessage());
-        }
     }
 }
