@@ -29,7 +29,7 @@ ob_start();
                             <td><?= htmlspecialchars($marca['marca_name']); ?></td>
                             <td>
                                 <button class='edit' onclick="window.location.href='edit.php?type=marca&id=<?= $marca['marca_id'] ?>'">Editar</button>
-                                <button class='delete' onclick="window.location.href='delete.php?type=marca&id=<?= $marca['marca_id'] ?>'">Eliminar</button>
+                                <button class='delete' data-url="delete.php?type=marca&id=<?= $marca['marca_id'] ?>">Eliminar</button>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -50,18 +50,16 @@ ob_start();
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    foreach ($modelos as $modelo) {
-                        echo "<tr>
-                                <td>{$modelo['modelo_name']}</td>
-                                <td>{$modelo['marca_name']}</td>
+                    <?php foreach ($modelos as $modelo) { ?>
+                        <tr>
+                                <td><?= htmlspecialchars($modelo['modelo_name']); ?></td>
+                                <td><?= htmlspecialchars($modelo['marca_name']); ?></td>
                                 <td>
-                                    <button class='edit' onclick=\"window.location.href='edit.php?type=modelo&id={$modelo['modelo_id']}'\">Editar</button>
-                                    <button class='delete' onclick=\"window.location.href='delete.php?type=modelo&id={$modelo['modelo_id']}'\">Eliminar</button>
+                                    <button class='edit' onclick="window.location.href='edit.php?type=modelo&id={$modelo['modelo_id']}'">Editar</button>
+                                    <button class='delete' data-url="delete.php?type=modelo&id=<?= $modelo['modelo_id'] ?>">Eliminar</button>
                                 </td>
-                              </tr>";
-                    }
-                    ?>
+                              </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
@@ -80,25 +78,33 @@ ob_start();
                     </tr>
                 </thead>
                 <tbody>
-                    <?php
-                    foreach ($submodelos as $submodelo) {
-                        $ac = $submodelo['submodelo_ac'] ? 'Sí' : 'No';
-                        echo "<tr>
-                                <td>{$submodelo['submodelo_name']}</td>
-                                <td>{$submodelo['modelo_name']}</td>
-                                <td>{$submodelo['submodelo_year']}</td>
-                                <td>{$ac}</td>
-                                <td>
-                                    <button class='edit' onclick=\"window.location.href='edit.php?type=submodelo&id={$submodelo['submodelo_id']}'\">Editar</button>
-                                    <button class='delete' onclick=\"window.location.href='delete.php?type=submodelo&id={$submodelo['submodelo_id']}'\">Eliminar</button>
-                                </td>
-                              </tr>";
-                    }
-                    ?>
+                    <?php foreach ($submodelos as $submodelo) { $ac = $submodelo['submodelo_ac'] ? 'Sí' : 'No'; ?>
+                        <tr>
+                            <td><?= $submodelo['submodelo_name'] ?></td>
+                            <td><?= $submodelo['modelo_name'] ?></td>
+                            <td><?= $submodelo['submodelo_year'] ?></td>
+                            <td><?= $ac ?></td>
+                            <td>
+                                <button class='edit' onclick="window.location.href='edit.php?type=submodelo&id={$submodelo['submodelo_id']}'">Editar</button>
+                                <button class='delete' data-url="delete.php?type=submodelo&id=<?= $submodelo['submodelo_id'] ?>">Eliminar</button>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
-    </div>
+
+        <div id="delete-popup" class="popup-overlay">
+        <div class="popup-content">
+            <p>¿Estás seguro de que quieres eliminar este elemento?</p>
+            <div class="popup-buttons">
+                <button id="confirm-delete" class="confirm">Eliminar</button>
+                <button id="cancel-delete" class="cancel">Cancelar</button>
+            </div>
+        </div>
+
+<script src="js/app.js"></script>
+
 <?php
 $content = ob_get_clean();
 include 'layout.php';
