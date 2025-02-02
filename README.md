@@ -33,7 +33,7 @@ El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
 - Una sola capa de código donde las funcionalidades estarán implementadas directamente en los archivos PHP.
 - Separación mínima de lógica, estructura y estilo.
 
-### Etapa 2: Orientación a objetos (OOP)
+### Etapa 2: [Orientación a objetos (OOP)](poo/readme.md)
 - Introducción de clases para manejar la lógica de la aplicación.
 - Métodos específicos para cada operación del CRUD.
 
