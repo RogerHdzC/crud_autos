@@ -140,8 +140,6 @@ El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
    4. Deberías de ver algo así
 
    ![ss-php-mysql](imgs/ss-php-mysql.png)
-   
-#### Explicación del código
 
 ---
 
