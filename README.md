@@ -8,17 +8,6 @@ Este proyecto tiene como objetivo desarrollar un CRUD (Crear, Leer, Actualizar, 
 
 El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
 
-## Requerimientos mínimos
-
-### Linux
-- **PHP** 8.3
-- **MySQL** o **MariaDB**
-
-### Windows
-- **Windows Subsystem for Linux (WSL)** con **Ubuntu 24.04**
-- **PHP** 8.3
-- **MySQL**
-
 ## Tecnologías utilizadas
 - **PHP**: Backend
 - **JavaScript**: Interactividad en el frontend
@@ -37,64 +26,7 @@ El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
 - Introducción de clases para manejar la lógica de la aplicación.
 - Métodos específicos para cada operación del CRUD.
 
-### Etapa 3: Modelo-Vista-Controlador (MVC)
-- Separación de responsabilidades:
-  - **Modelo**: Gestión de datos y operaciones con la base de datos.
-  - **Vista**: Presentación de datos al usuario.
-  - **Controlador**: Manejo de la lógica de la aplicación y comunicación entre modelo y vista.
-
 ## Configuración inicial
-
-### Linux
-1. Instala **PHP 8.3** y **MySQL** o **MariaDB**:
-   ```bash
-   sudo apt update
-   sudo apt install --no-install-recommends php8.3
-   sudo apt-get install -y php8.3-cli php8.3-common php8.3-mysql php8.3-zip php8.3-curl php8.3-bcmath
-   curl -sS https://getcomposer.org/installer -o /tmp/composer-setup.php
-   HASH=`curl -sS https://composer.github.io/installer.sig`
-   php -r "if (hash_file('SHA384', '/tmp/composer-setup.php') === '$HASH') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
-   ```
-   El output debería de ser **Installer verified**
-   ```bash
-   sudo php /tmp/composer-setup.php --install-dir=/usr/local/bin --filename=composer
-   ```
-   **Installar mysql**
-   ```bash
-   mysql-server
-   sudo apt install mysql-server
-   sudo systemctl status mysql 
-   ```
-   Si esta inactivo ejecutar
-   ```bash
-   sudo systemctl start mysql
-   sudo mysql_secure_installation
-   ```
-   Root: y
-   Password: Depende de ustedes, en caso de que les pida incluir un password hacerlo, en el caso contrario podran hacer login con
-   ```bash
-   sudo mysql -u root
-   ```
-   Anonymus: y
-   Root login: y
-   Test db: y
-   Reload privileges: y
-   *Estas son recomendaciones basada en el artículo https://linuxgenie.net/install-mysql-ubuntu-24-04/ *
-   
-2. Verifica las versiones:
-   ```bash
-   php -v
-   composer
-   mysql --version
-   ```
-
-### Windows
-1. Instala **WSL** y configura **Ubuntu 24.04**:
-   - Sigue la guía oficial de instalación de WSL en [Microsoft Docs](https://learn.microsoft.com/en-us/windows/wsl/install).
-   - Ubuntu
-   
-   ![Screenshot de la microsoft store](imgs/ss-microsoft-store-ubuntu.png)
-2. Dentro de WSL, instala **PHP 8.3** y **MySQL** como se indica en la sección de Linux.
 
 ### Prueba la instalación de php
 1. Crea un folder llamado MiPrimerArchivoPhp
@@ -112,17 +44,17 @@ El proyecto utilizará exclusivamente **PHP**, **JavaScript** y **CSS puro**.
       echo "Hola Mundo";
    ```
    Para salir de nano presiona `ctr+o` luego enter, y finalmente presiona `ctrl+x`
-3. Inicia un server de desarrollo de php
+3. Inicia un server de desarrollo de php con tu ip, en este caso el server de la iMAC esta a 10.50.70.236 y el puerto con la siguiente fórmula 3000 + grupo*100 + numero_de_equipo
    ```bash
-   php -S localhost:3000 
+   php -S ip:puerto
    ```
-4. En el browser navega a `localhost:3000`, debería estar viendo:
+4. En el browser navega a `ip:puerto`, debería estar viendo:
 
 ![ss-hola-mundo](imgs/ss-hola-mundo.png)
 
 ### Test de la configuración de PHP & Mysql
 
-   1. Crea esto en mysql con tu usario personal (NO ROOT) en la base de datos de autos
+   1. Crea esto en mysql con tu usario (NO ROOT) en tu base de datos
 
    ```sql
       CREATE TABLE `tbl_personal` (
@@ -300,6 +232,6 @@ if($query -> rowCount() > 0) {
 - Cada registro muestra los valores de las columnas: `nombres`, `apellidos`, `profesion`, `estado`, y `fregis`.
 
 ---
-## Diseño de la base de datos
+## Sigue con la primera implementación en [Código espagueti](spaguetti/readme.md)
 
-El diseño de la base de datos está documentado en el siguiente archivo: [Diseño de Base de Datos](bd/bd.md)
+## Sigue con la segunda implementación en [Código Orientación a objetos (OOP)](poo/readme.md)
