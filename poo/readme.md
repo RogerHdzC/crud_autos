@@ -34,7 +34,7 @@
 
 ---
 
-## **Cómo Iniciar el Proyecto**
+## **Cómo Iniciar el Proyecto Completado**
 
 1. En la terminal ejecuta:
    ```bash
@@ -45,12 +45,36 @@
 
 3. Inicia el servidor local de PHP:
    ```bash
-   php -S localhost:3000
+   php -S ip:puerto
    ```
 
-4. Abre tu navegador y accede a [http://localhost:3000](http://localhost:3000).
+4. Abre tu navegador y accede a [http://ip:puerto](http://ip:puerto).
 
 ---
+
+## Progreso del Proyecto
+
+Puedes seguir el progreso del desarrollo revisando los siguientes commits clave (**NOTA: Los estilos y el body de HTML se agregó considerando que esto es un tutorial para entender PHP**):
+
+Desde un inicio se considera el setup de las variables de entorno como en el princio, con el comando de:
+```bash
+composer require vlucas/phpdotenv
+```
+
+| Funcionalidad | Commit |
+|---------------|--------|
+| CRUD de Marcas | `856825b` |
+| Modularización de carga del env | `6e316ad` |
+| CRUD de Modelos | `610dea3` |
+| Refactorizar la funciones duplicadas | `a7566c7` |
+| CRUD de Submodelos | `bfa5b1c` |
+| Confirmación de delete | `e6fe1c5` |
+
+Para ver una versión específica:
+```bash
+git checkout <hash>
+```
+
 
 ## **Principales Mejoras respecto al Código Espagueti**
 
